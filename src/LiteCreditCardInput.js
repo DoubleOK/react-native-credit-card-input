@@ -27,7 +27,6 @@ const s = StyleSheet.create({
   icon: {
     width: 48,
     height: 40,
-    resizeMode: "contain",
   },
   expanded: {
     flex: 1,
