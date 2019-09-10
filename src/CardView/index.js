@@ -23,6 +23,7 @@ const propTypes = {
   expiry: PropTypes.string,
   cvc: PropTypes.string,
   placeholder: PropTypes.object,
+  expiryLabel: PropTypes.string,
 
   scale: PropTypes.number,
   fontFamily: PropTypes.string,
@@ -39,7 +40,7 @@ const defaultProps = {
     expiry: '••/••',
     cvc: '•••',
   },
-
+  expiryLabel: 'MONTH/YEAR',
   scale: 1,
   fontFamily: Platform.select({ ios: 'Courier', android: 'monospace' }),
   imageFront: require('../images/card-front.png'),
@@ -53,6 +54,7 @@ const CardView = props => {
     name,
     number,
     expiry,
+    expiryLabel,
     cvc,
     customIcons,
     placeholder,
@@ -107,7 +109,7 @@ const CardView = props => {
             {!name ? placeholder.name : name.toUpperCase()}
           </Text>
           <Text style={[...baseSyle, styles.expiryLabel, styles.placeholder, isFocused('expiry')]}>
-            MONTH/YEAR
+            {expiryLabel}
           </Text>
           <Text style={[...baseSyle, styles.expiry, !expiry && styles.placeholder, isFocused('expiry')]}>
             {!expiry ? placeholder.expiry : expiry}
